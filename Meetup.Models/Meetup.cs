@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Meetup.Models
 {
-    class Meetup : BaseEntity
+    public class Meetup : BaseEntity
     {
         public string Name { get; set; }
         public string Place { get; set; }

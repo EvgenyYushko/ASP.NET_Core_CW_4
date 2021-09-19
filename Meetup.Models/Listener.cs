@@ -2,7 +2,7 @@
 
 namespace Meetup.Models
 {
-    class Listener : BaseEntity
+    public class Listener : BaseEntity
     {
         public string Name { get; set; }
         public Guid MeetupId { get; set; }

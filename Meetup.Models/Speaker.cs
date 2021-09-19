@@ -2,7 +2,7 @@
 
 namespace Meetup.Models
 {
-    class Speaker : BaseEntity
+    public class Speaker : BaseEntity
     {
         public string Name { get; set; }
         public string Theme { get; set; }
