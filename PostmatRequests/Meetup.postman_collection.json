@@ -68,7 +68,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:44346/api/meetup/getbyid",
+					"raw": "https://localhost:44346/api/meetup/getbyid?id=AC5E793A-842F-44EB-8382-503A73F3681F",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -78,6 +78,12 @@
 						"api",
 						"meetup",
 						"getbyid"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "AC5E793A-842F-44EB-8382-503A73F3681F"
+						}
 					]
 				}
 			},
@@ -159,7 +165,7 @@
 					]
 				},
 				"url": {
-					"raw": "https://localhost:44346/api/Listener/getbyid",
+					"raw": "https://localhost:44346/api/Listener/getbyid?id=D036BDF0-4B84-4973-9E8D-21881CB16056",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -175,6 +181,10 @@
 							"key": "Id",
 							"value": "dsd",
 							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "D036BDF0-4B84-4973-9E8D-21881CB16056"
 						}
 					]
 				}
@@ -254,7 +264,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:44346/api/Speaker/getbyid",
+					"raw": "https://localhost:44346/api/Speaker/getbyid?id=31C9DD76-A181-453B-A053-3637CDFA3B07",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -264,6 +274,12 @@
 						"api",
 						"Speaker",
 						"getbyid"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "31C9DD76-A181-453B-A053-3637CDFA3B07"
+						}
 					]
 				}
 			},
