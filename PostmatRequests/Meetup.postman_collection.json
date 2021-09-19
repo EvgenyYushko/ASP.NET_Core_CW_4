@@ -1,0 +1,273 @@
+{
+	"info": {
+		"_postman_id": "5015f409-c9d2-4473-ad31-8da4a320ba2a",
+		"name": "Meetup",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Meetup Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Name",
+							"value": "Первый митап",
+							"type": "text"
+						},
+						{
+							"key": "Place",
+							"value": "Минск",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:44346/api/Meetup/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"api",
+						"Meetup",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Meetup GetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/api/meetup/getall",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"api",
+						"meetup",
+						"getall"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Meetup GetById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/api/meetup/getbyid",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"api",
+						"meetup",
+						"getbyid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listener Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Name",
+							"value": "Евгений",
+							"type": "text"
+						},
+						{
+							"key": "MeetupId",
+							"value": "AC5E793A-842F-44EB-8382-503A73F3681F",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:44346/api/Listener/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"api",
+						"Listener",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listener GetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/api/Listener/getall",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"api",
+						"Listener",
+						"getall"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listener GeById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Id",
+							"value": "D036BDF0-4B84-4973-9E8D-21881CB16056",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:44346/api/Listener/getbyid",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"api",
+						"Listener",
+						"getbyid"
+					],
+					"query": [
+						{
+							"key": "Id",
+							"value": "dsd",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Speaker Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Name",
+							"value": "Вика",
+							"type": "text"
+						},
+						{
+							"key": "Theme",
+							"value": "Юнит тесты в  ASP.NET Core",
+							"type": "text"
+						},
+						{
+							"key": "Materials",
+							"value": "Перезентация",
+							"type": "text"
+						},
+						{
+							"key": "MeetupId",
+							"value": "AC5E793A-842F-44EB-8382-503A73F3681F",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:44346/api/Speaker/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"api",
+						"Speaker",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Speaker GetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/api/Speaker/getall",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"api",
+						"Speaker",
+						"getall"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Speaker GetById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/api/Speaker/getbyid",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"api",
+						"Speaker",
+						"getbyid"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
