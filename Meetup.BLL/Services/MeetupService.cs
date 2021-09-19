@@ -6,7 +6,6 @@ using Meetup.DAL.Patterns.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Meetup.BLL.Services
@@ -45,35 +44,41 @@ namespace Meetup.BLL.Services
         {
             try
             {
-                var dbMeetups = _unitOfWork.Meetups.GetAll().Where(func).
-                    Select(m =>
+                List<Models.Meetup> dbMeetups;
+                if (func == null)
+                {
+                    dbMeetups = _unitOfWork.Meetups.GetAll().ToList();
+                }
+                else
+                {
+                    dbMeetups = _unitOfWork.Meetups.GetAll().Where(func).ToList();
+                }
+
+                return dbMeetups.Select(m =>
+                {
+                    return new InfoMeetup()
                     {
-                        return new InfoMeetup()
+                        Name = m.Name,
+                        Place = m.Place,
+                        CreationDate = m.CreationDate,
+                        Listeners = m.Listeners.Select(l =>
                         {
-                            Name = m.Name,
-                            Place = m.Place,
-                            CreationDate = m.CreationDate,
-                            Listeners = m.Listeners.Select(l =>
+                            return new InfoListener()
                             {
-                                return new InfoListener()
-                                {
-                                    Name = l.Name
-                                };
-                            }).ToList(),
-                            Speakers = m.Speakers.Select(s =>
+                                Name = l.Name
+                            };
+                        }).ToList(),
+                        Speakers = m.Speakers.Select(s =>
+                        {
+                            return new InfoSpeaker()
                             {
-                                return new InfoSpeaker()
-                                {
-                                    Name = s.Name,
-                                    Theme = s.Theme,
-                                    Materials = s.Materials
-                                };
-                            }).ToList()
-                        };
-                    }).ToList();
-
-                return dbMeetups;
-
+                                Name = s.Name,
+                                Theme = s.Theme,
+                                Materials = s.Materials
+                            };
+                        }).ToList()
+                    };
+                }).ToList();
             }
             catch (Exception ex)
             {

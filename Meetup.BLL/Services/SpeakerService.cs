@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Meetup.BLL.Services
 {
-    class SpeakerService : ISpeakerService
+    public class SpeakerService : ISpeakerService
     {
         private readonly IUnitOfWork _unitOfWork;
 
@@ -22,17 +22,25 @@ namespace Meetup.BLL.Services
         {
             try
             {
-                var dbSpeakers = _unitOfWork.Speakers.GetAll().Where(func)
-                    .Select(s =>
+                List<Speaker> dbSpeakers;
+                if (func == null)
+                {
+                    dbSpeakers = _unitOfWork.Speakers.GetAll().ToList();
+                }
+                else
+                {
+                    dbSpeakers = _unitOfWork.Speakers.GetAll().Where(func).ToList();
+                }
+
+                return dbSpeakers.Select(s =>
+                {
+                    return new InfoSpeaker()
                     {
-                        return new InfoSpeaker()
-                        {
-                            Name = s.Name,
-                            Theme = s.Theme,
-                            Materials = s.Materials
-                        };
-                    }).ToList();
-                return dbSpeakers;
+                        Name = s.Name,
+                        Theme = s.Theme,
+                        Materials = s.Materials
+                    };
+                }).ToList();
 
             }
             catch (Exception ex)

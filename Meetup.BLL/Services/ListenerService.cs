@@ -19,19 +19,27 @@ namespace Meetup.BLL.Services
             _unitOfWork = unitOfWork;
         }
 
-        public List<InfoListener> FindMeetupByFunc(Func<Listener, bool> func)
+        public List<InfoListener> FindListenerByFunc(Func<Listener, bool> func)
         {
             try
             {
-                var dbListeners = _unitOfWork.Listeners.GetAll().Where(func)
-                    .Select(s =>
+                List<Listener> dbListeners;
+                if (func == null)
+                {
+                    dbListeners = _unitOfWork.Listeners.GetAll().ToList();
+                }
+                else
+                {
+                    dbListeners = _unitOfWork.Listeners.GetAll().Where(func).ToList();
+                }
+
+                return dbListeners.Select(s =>
+                {
+                    return new InfoListener()
                     {
-                        return new InfoListener()
-                        {
-                            Name = s.Name
-                        };
-                    }).ToList();
-                return dbListeners;
+                        Name = s.Name
+                    };
+                }).ToList();
 
             }
             catch (Exception ex)

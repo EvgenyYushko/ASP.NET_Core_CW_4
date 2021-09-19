@@ -9,6 +9,6 @@ namespace Meetup.BLL.Interfaces
     public interface IListenerService
     {
         Task<Guid> RegisterListenerAsync(RegisterListener listener);
-        List<InfoListener> FindMeetupByFunc(Func<Models.Listener, bool> func);
+        List<InfoListener> FindListenerByFunc(Func<Models.Listener, bool> func);
     }
 }

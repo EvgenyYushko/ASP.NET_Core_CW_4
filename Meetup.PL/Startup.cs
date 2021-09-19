@@ -1,7 +1,13 @@
+using Meetup.BLL.Interfaces;
+using Meetup.BLL.Services;
+using Meetup.DAL;
+using Meetup.DAL.Patterns.Interfaces;
+using Meetup.DAL.Patterns.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,7 +31,15 @@ namespace Meetup.PL
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string connection = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connection));
             services.AddControllers();
+
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IMeetupService, MeetupService>();
+            services.AddTransient<IListenerService, ListenerService>();
+            services.AddTransient<ISpeakerService, SpeakerService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
