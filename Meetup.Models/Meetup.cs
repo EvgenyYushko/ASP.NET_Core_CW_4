@@ -7,7 +7,7 @@ namespace Meetup.Models
     {
         public string Name { get; set; }
         public string Place { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime CreationDate { get; set; }
 
         /// <summary>wW
         /// 0 - Ожидание; 1 - Подтверждено; 2 - Отклонено

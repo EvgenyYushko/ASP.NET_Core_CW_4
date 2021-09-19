@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meetup.Models", "Meetup.Mod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meetup.DAL", "Meetup.DAL\Meetup.DAL.csproj", "{AE7F5293-774C-40FA-B695-6C5AEDA01337}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meetup.BLL", "Meetup.BLL\Meetup.BLL.csproj", "{2330101A-45A6-41D9-8286-5631BD55E36D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{AE7F5293-774C-40FA-B695-6C5AEDA01337}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE7F5293-774C-40FA-B695-6C5AEDA01337}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE7F5293-774C-40FA-B695-6C5AEDA01337}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2330101A-45A6-41D9-8286-5631BD55E36D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2330101A-45A6-41D9-8286-5631BD55E36D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2330101A-45A6-41D9-8286-5631BD55E36D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2330101A-45A6-41D9-8286-5631BD55E36D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

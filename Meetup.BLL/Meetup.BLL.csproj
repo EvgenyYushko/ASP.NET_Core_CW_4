@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Meetup.DAL\Meetup.DAL.csproj" />
+    <ProjectReference Include="..\Meetup.Models\Meetup.Models.csproj" />
+  </ItemGroup>
+
+</Project>
