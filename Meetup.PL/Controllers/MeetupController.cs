@@ -33,10 +33,24 @@ namespace Meetup.PL.Controllers
             return _meetupService.FindMeetupByFunc(m => m.Id == id);
         }
 
+        [HttpGet]
+        [Route("updatebyid")]
+        public InfoMeetup SetStatusMeetupById(Guid id, int statusId)
+        {
+            return _meetupService.UpdateMeetupById(id, statusId).Result;
+        }
+
+        [HttpGet]
+        [Route("delete")]
+        public void DeleteMeetupById(Guid id)
+        {
+            _meetupService.DeleteMeetupById(id);
+        }
+
         [HttpPost]
         public Guid Create([FromForm] CreateMeetup createMeetup)
         {
-            return (_meetupService.CreateMeetupAsync(createMeetup)).Result;
+            return _meetupService.CreateMeetupAsync(createMeetup).Result;
         }
     }
 }

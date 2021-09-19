@@ -90,6 +90,64 @@
 			"response": []
 		},
 		{
+			"name": "Meetup UpdateStatus",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/api/meetup/updatebyid?id=AC5E793A-842F-44EB-8382-503A73F3681F&statusid=1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"api",
+						"meetup",
+						"updatebyid"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "AC5E793A-842F-44EB-8382-503A73F3681F"
+						},
+						{
+							"key": "statusid",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Meetup Delete",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44346/api/meetup/delete?id=19e318ed-4833-4ff9-adb9-fa1bd2760643",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44346",
+					"path": [
+						"api",
+						"meetup",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "19e318ed-4833-4ff9-adb9-fa1bd2760643"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Listener Register",
 			"request": {
 				"method": "POST",
@@ -104,7 +162,7 @@
 						},
 						{
 							"key": "MeetupId",
-							"value": "AC5E793A-842F-44EB-8382-503A73F3681F",
+							"value": "D0A4E48D-80BC-4CA8-90C4-8C3639D2B62A",
 							"type": "text"
 						}
 					]

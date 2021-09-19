@@ -40,6 +40,12 @@ namespace Meetup.BLL.Services
             }
         }
 
+        public async Task DeleteMeetupById(Guid id)
+        {
+            var dbMeetup = _unitOfWork.Meetups.GetAll().Where(m => m.Id == id).FirstOrDefault();
+            await _unitOfWork.Meetups.DeleteAsync(dbMeetup);
+        }
+
         public List<InfoMeetup> FindMeetupByFunc(Func<Models.Meetup, bool> func)
         {
             try
@@ -53,37 +59,48 @@ namespace Meetup.BLL.Services
                 {
                     dbMeetups = _unitOfWork.Meetups.GetAll().Where(func).ToList();
                 }
-
-                return dbMeetups.Select(m =>
-                {
-                    return new InfoMeetup()
-                    {
-                        Name = m.Name,
-                        Place = m.Place,
-                        CreationDate = m.CreationDate,
-                        Listeners = m.Listeners.Select(l =>
-                        {
-                            return new InfoListener()
-                            {
-                                Name = l.Name
-                            };
-                        }).ToList(),
-                        Speakers = m.Speakers.Select(s =>
-                        {
-                            return new InfoSpeaker()
-                            {
-                                Name = s.Name,
-                                Theme = s.Theme,
-                                Materials = s.Materials
-                            };
-                        }).ToList()
-                    };
-                }).ToList();
+                return dbMeetups.Select(m => GetInfoMeetup(m)).ToList();
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+        }
+
+        public async Task<InfoMeetup> UpdateMeetupById(Guid id, int statusId)
+        {
+            var dbMeetup = _unitOfWork.Meetups.GetAll().Where(m => m.Id == id).FirstOrDefault();
+            dbMeetup.Status = statusId;
+            dbMeetup = await _unitOfWork.Meetups.UpdateAsync(dbMeetup);
+
+            return GetInfoMeetup(dbMeetup);
+        }
+
+        private InfoMeetup GetInfoMeetup(Models.Meetup m)
+        {
+            return new InfoMeetup()
+            {
+                Name = m.Name,
+                Place = m.Place,
+                CreationDate = m.CreationDate,
+                Status = m.Status,
+                Listeners = m.Listeners.Select(l =>
+                {
+                    return new InfoListener()
+                    {
+                        Name = l.Name
+                    };
+                }).ToList(),
+                Speakers = m.Speakers.Select(s =>
+                {
+                    return new InfoSpeaker()
+                    {
+                        Name = s.Name,
+                        Theme = s.Theme,
+                        Materials = s.Materials
+                    };
+                }).ToList()
+            };
         }
     }
 }

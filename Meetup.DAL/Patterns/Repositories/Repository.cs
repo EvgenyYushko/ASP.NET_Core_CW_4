@@ -29,9 +29,8 @@ namespace Meetup.DAL.Patterns.Repositories
             }
         }
 
-        public virtual async Task DeleteAsync(Guid id)
+        public virtual async Task DeleteAsync(TEntity entity)
         {
-            var entity = await GetByIdAsync(id);
             _db.Set<TEntity>().Remove(entity);
             await Save();
         }

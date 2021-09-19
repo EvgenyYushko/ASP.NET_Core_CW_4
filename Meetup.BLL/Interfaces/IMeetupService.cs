@@ -10,5 +10,7 @@ namespace Meetup.BLL.Interfaces
     {
         Task<Guid> CreateMeetupAsync(CreateMeetup meetup);
         List<InfoMeetup> FindMeetupByFunc(Func<Models.Meetup, bool> func);
+        Task<InfoMeetup> UpdateMeetupById(Guid id, int statusId);
+        Task DeleteMeetupById(Guid id);
     }
 }

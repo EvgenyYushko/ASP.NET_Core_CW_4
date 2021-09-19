@@ -11,6 +11,7 @@ namespace Meetup.BLL.ViewModels.Meetup
         public string Name { get; set; }
         public string Place { get; set; }
         public DateTime CreationDate { get; set; }
+        public int Status { get; set; }
         public List<InfoSpeaker> Speakers { get; set; } = new List<InfoSpeaker>();
         public List<InfoListener> Listeners { get; set; } = new List<InfoListener>();
     }

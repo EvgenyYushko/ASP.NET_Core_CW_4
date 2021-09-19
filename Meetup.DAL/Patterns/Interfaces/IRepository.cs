@@ -9,7 +9,7 @@ namespace Meetup.DAL.Patterns.Interfaces
     {
         Task<TEntity> CreateAsync(TEntity item);
         Task<TEntity> UpdateAsync(TEntity item);
-        Task DeleteAsync(Guid id);
+        Task DeleteAsync(TEntity entity);
         IQueryable<TEntity> GetAll();
         Task<TEntity> GetByIdAsync(Guid id);
     }
