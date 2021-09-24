@@ -2,7 +2,6 @@
 
 namespace Meetup.Models
 {
-//
     public class Listener : BaseEntity  
     {
         public string Name { get; set; }
